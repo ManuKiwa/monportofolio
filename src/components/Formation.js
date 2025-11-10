@@ -14,13 +14,13 @@ const formations = [
   },
   {
     title: "Licence Sciences Informatiques",
-    institution: "Université Catholique du Congo",
+    institution: "Université Catholique du Congo (UCC)",
     date: "2020 - 2023 | Mention: Distinction | Kinshasa, RDC",
     details: []
   },
   {
     title: "Baccalauréat Scientifique",
-    institution: "Collège Notre Dame du Congo",
+    institution: "Collège Notre Dame du Congo (CNDC)",
     date: "2019 - 2020 | Option: Mathématiques et Physique | Mention: Bien",
     details: []
   }

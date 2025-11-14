@@ -36,18 +36,35 @@ const experiences = [
 const Experience = () => (
   <section className="section">
     <h2 className="section-title">💼 Expériences Professionnelles</h2>
-    {experiences.map((exp, index) => (
-      <div key={index} className="experience-card p-4 mb-3">
-        <h3 className="card-title h5 mb-2">{exp.title}</h3>
-        <div className="company mb-1">{exp.company}</div>
-        <div className="date mb-3">{exp.date}</div>
-        <ul className="task-list">
-          {exp.details.map((detail, i) => (
-            <li key={i}>{detail}</li>
-          ))}
-        </ul>
-      </div>
-    ))}
+    <div
+      className="d-flex flex-wrap gap-3"
+      style={{
+        justifyContent: 'center',
+        alignItems: 'stretch'
+      }}
+    >
+      {experiences.map((exp, index) => (
+        <div
+          key={index}
+          className="experience-card p-4 mb-3"
+          style={{
+            flex: '1 1 320px',
+            minWidth: 260,
+            maxWidth: 420,
+            borderRadius: 12,
+          }}
+        >
+          <h3 className="card-title h5 mb-2">{exp.title}</h3>
+          <div className="company mb-1 text-primary">{exp.company}</div>
+          <div className="date mb-3" style={{ color: '#888' }}>{exp.date}</div>
+          <ul className="task-list">
+            {exp.details.map((detail, i) => (
+              <li key={i}>{detail}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   </section>
 );
 

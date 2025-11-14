@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Experience from "./components/Experience";
-import Formation from "./components/Formation";
 import Projects from "./components/Projects";
+import Formation from "./components/Formation";
 import Skills from "./components/Skills";
 import Strengths from "./components/Strengths";
 import Languages from "./components/Languages";
@@ -32,18 +32,30 @@ function App() {
   return (
     <div className={`app ${isDarkMode ? "dark-mode" : "light-mode"}`}>
       <NeuralBackground isDarkMode={isDarkMode} />
-
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-
       <div className="main-content">
         <div className="container">
-          <div id="header"><Header /></div>
-          <div id="experience"><Experience /></div>
-          <div id="formation"><Formation /></div>
-          <Projects />
-          <div id="skills"><Skills /></div>
-          <div id="strengths"><Strengths /></div>
-          <div id="languages"><Languages /></div>
+          <div id="header">
+            <Header />
+          </div>
+          <div id="experience">
+            <Experience />
+          </div>
+          <div id="projects">
+            <Projects />
+          </div>
+          <div id="formation">
+            <Formation />
+          </div>
+          <div id="skills">
+            <Skills />
+          </div>
+          <div id="strengths">
+            <Strengths />
+          </div>
+          <div id="languages">
+            <Languages />
+          </div>
           <Footer />
         </div>
       </div>

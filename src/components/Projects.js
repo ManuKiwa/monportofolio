@@ -1,5 +1,5 @@
 // src/components/Projects.js
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   FaRobot,
   FaChartLine,
@@ -49,81 +49,157 @@ const projects = [
   },
 ];
 
-const Projects = () => (
-  <section className="section">
-    <h2 className="section-title">🚀 Projets Personnels</h2>
-    <div
-      className="d-flex flex-nowrap gap-4 overflow-auto py-2 projects-scrollbar-hide"
-      style={{
-        scrollbarWidth: "thin",
-        scrollSnapType: "x mandatory",
-      }}
-    >
-      {projects.map((project, idx) => (
-        <div
-          key={idx}
-          className="card project-card p-3 shadow-sm"
-          style={{
-            minWidth: 320,
-            maxWidth: 420,
-            borderRadius: 14,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            scrollSnapAlign: "center",
-          }}
-        >
-          {project.image && (
+const Projects = () => {
+  const repetitionCount = 3;
+  const containerRef = useRef(null);
+  const segmentWidthRef = useRef(0);
+  const seamlessProjects = Array.from({ length: repetitionCount }, () => projects).flat();
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return undefined;
+
+    const updateSegmentWidth = () => {
+      segmentWidthRef.current =
+        container.scrollWidth > 0
+          ? container.scrollWidth / repetitionCount
+          : 0;
+    };
+
+    const initializePosition = () => {
+      if (!segmentWidthRef.current) {
+        updateSegmentWidth();
+      }
+      if (segmentWidthRef.current) {
+        container.scrollLeft = segmentWidthRef.current;
+      }
+    };
+
+    const handleScroll = () => {
+      const segment = segmentWidthRef.current;
+      if (!segment) return;
+      const minThreshold = segment * 0.1;
+      const maxThreshold = segment * (repetitionCount - 1) - minThreshold;
+
+      if (container.scrollLeft <= minThreshold) {
+        container.scrollLeft += segment;
+      } else if (container.scrollLeft >= maxThreshold) {
+        container.scrollLeft -= segment;
+      }
+    };
+
+    const handleWheel = (event) => {
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        container.scrollLeft += event.deltaY;
+      }
+    };
+
+    updateSegmentWidth();
+    requestAnimationFrame(initializePosition);
+
+    const resizeHandler = () => {
+      const previousSegment = segmentWidthRef.current;
+      updateSegmentWidth();
+      if (!previousSegment) {
+        initializePosition();
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("resize", resizeHandler);
+
+    const recalibrationTimeout = setTimeout(() => {
+      initializePosition();
+    }, 600);
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      container.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("resize", resizeHandler);
+      clearTimeout(recalibrationTimeout);
+    };
+  }, [repetitionCount]);
+
+  return (
+    <section className="section">
+      <h2 className="section-title">🚀 Projets Personnels</h2>
+      <div
+        className="projects-marquee projects-scrollbar-hide"
+        ref={containerRef}
+      >
+        <div className="projects-track">
+          {seamlessProjects.map((project, idx) => (
             <div
-              className="mb-2 w-100"
+              key={`${project.title}-${idx}`}
+              className="card project-card p-3 shadow-sm"
               style={{
-                height: 100,
-                borderRadius: 10,
-                overflow: "hidden",
-                background: "#e7eaf0",
+                minWidth: 320,
+                maxWidth: 420,
+                borderRadius: 14,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                scrollSnapAlign: "center",
+                scrollSnapStop: "always",
               }}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-                onError={(e) => {
-                  // Fallback si l'image ne charge pas
-                  e.target.style.display = 'none';
-                  e.target.parentElement.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                }}
-              />
-            </div>
-          )}
-          <div className="mb-2">{project.icon}</div>
-          <h3 className="h6 mb-1 text-center" style={{ color: "#667eea" }}>
-            {project.title}
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ marginLeft: 8, color: "#667eea", fontSize: 19 }}
-                aria-label={`Lien vers ${project.title}`}
+              {project.image && (
+                <div
+                  className="mb-2 w-100"
+                  style={{
+                    height: 140,
+                    borderRadius: 10,
+                    overflow: "hidden",
+                    background: "#e7eaf0",
+                  }}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                      e.target.parentElement.style.background =
+                        "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+                    }}
+                  />
+                </div>
+              )}
+              <div className="mb-2">{project.icon}</div>
+              <h3 className="h6 mb-1 text-center" style={{ color: "#667eea" }}>
+                {project.title}
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ marginLeft: 8, color: "#667eea", fontSize: 19 }}
+                    aria-label={`Lien vers ${project.title}`}
+                  >
+                    <FaExternalLinkAlt />
+                  </a>
+                )}
+              </h3>
+              <div
+                className="mb-2 text-muted text-center"
+                style={{ color: "#fff", fontSize: 15 }}
               >
-                <FaExternalLinkAlt />
-              </a>
-            )}
-          </h3>
-          <div
-            className="mb-2 text-muted text-center"
-            style={{ color: "#fff", fontSize: 15 }}
-          >
-            {project.description}
-          </div>
+                {project.description}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};
 
 export default Projects;

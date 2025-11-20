@@ -246,6 +246,25 @@ body.light-mode {
   margin-bottom: 2rem !important;
 }
 
+.reveal-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Cards génériques */
 .experience-card,
 .education-card,
@@ -454,4 +473,34 @@ html {
 }
 .projects-scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.projects-marquee {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scroll-padding: 0 10%;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.6) 10%,
+    rgba(0, 0, 0, 0.6) 90%,
+    transparent 100%
+  );
+}
+
+.projects-marquee:active {
+  cursor: grabbing;
+}
+
+.projects-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2rem;
 }

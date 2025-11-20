@@ -6,6 +6,8 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import profilePhoto from "../assets/images/profil/WhatsApp Image 2025-04-02 à 07.35.19_9f565aca.jpg";
+import cvDocument from "../assets/Documents/CV_2025-11-11_Emmanuel_KIWA.pdf";
 
 const Header = () => {
   const [hoverIdx, setHoverIdx] = useState(-1);
@@ -46,7 +48,13 @@ const Header = () => {
   return (
     <header className="header-section text-center">
       <div className="profile-section d-flex align-items-center justify-content-center gap-4 flex-wrap mb-3">
-        <div className="profile-photo">EK</div>
+        <div className="profile-photo">
+          <img
+            src={profilePhoto}
+            alt="Portrait d'Emmanuel Kiwa"
+            loading="lazy"
+          />
+        </div>
         <div className="profile-info text-start" style={{ maxWidth: 600 }}>
           <h1 className="display-5 mb-2">Emmanuel KIWA</h1>
           <div className="subtitle fs-5 mb-3">
@@ -60,9 +68,9 @@ const Header = () => {
             apporter innovation et expertise technique à des projets d'envergure.
           </p>
           <a
-            href="#"
+            href={cvDocument}
+            download="CV_Emmanuel_Kiwa.pdf"
             className="btn btn-download d-inline-flex align-items-center gap-2"
-            onClick={() => alert("Cliquez pour télécharger le CV PDF")}
           >
             <span>📄</span> Télécharger mon CV
           </a>

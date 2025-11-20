@@ -61,12 +61,15 @@ const Header = () => {
             Ingénieur Systèmes Informatiques | IA & Big Data
           </div>
           <p className="description mb-4">
-            Étudiant passionné en 5ème année à l'ISGA, spécialisé en Intelligence
-            Artificielle et Big Data. Développeur full stack avec une solide
-            expérience en développement web, gestion de bases de données et
-            administration réseau. À la recherche d'un stage de fin d'études pour
-            apporter innovation et expertise technique à des projets d'envergure.
+            Passionné par l'innovation technologique et actuellement en 5ème
+            année à l'ISGA (option Intelligence Artificielle et Big Data),
+            j'explore l'intégration de solutions d'intelligence artificielle
+            et d'analyse de données massives dans mes projets, tout en concevant et développant
+            des solutions web full stack. Curieux, autodidacte et
+            ouvert d'esprit, j'aime relever des défis, apprendre en continu et
+            travailler en équipe pour créer de la valeur grâce à la technologie.
           </p>
+
           <a
             href={cvDocument}
             download="CV_Emmanuel_Kiwa.pdf"
@@ -82,7 +85,9 @@ const Header = () => {
           <a
             key={idx}
             href={item.href}
-            target={["GitHub", "LinkedIn"].includes(item.label) ? "_blank" : "_self"}
+            target={
+              ["GitHub", "LinkedIn"].includes(item.label) ? "_blank" : "_self"
+            }
             rel="noopener noreferrer"
             className="contact-item px-2"
             style={{ textDecoration: "none" }}

@@ -9,7 +9,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
     { id: "formation", label: "Formation" },
     { id: "skills", label: "Compétences" },
     { id: "strengths", label: "Atouts" },
-    { id: "languages", label: "Langues" },
+    // { id: "languages", label: "Langues" },
   ];
 
   const handleSmoothScroll = (event, targetId) => {

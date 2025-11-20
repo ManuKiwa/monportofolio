@@ -7,7 +7,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import profilePhoto from "../assets/images/profil/WhatsApp Image 2025-04-02 à 07.35.19_9f565aca.jpg";
-import cvDocument from "../assets/Documents/CV_2025-11-11_Emmanuel_KIWA.pdf";
+import cvDocument from "../assets/Documents/CV_Emmanuel_KIWA.pdf";
 
 const Header = () => {
   const [hoverIdx, setHoverIdx] = useState(-1);

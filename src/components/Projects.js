@@ -174,24 +174,21 @@ const Projects = () => {
                 </div>
               )}
               <div className="mb-2">{project.icon}</div>
-              <h3 className="h6 mb-1 text-center" style={{ color: "#667eea" }}>
+              <h3 className="h6 mb-1 text-center project-card-title">
                 {project.title}
                 {project.link && (
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ marginLeft: 8, color: "#667eea", fontSize: 19 }}
+                    className="project-card-link"
                     aria-label={`Lien vers ${project.title}`}
                   >
                     <FaExternalLinkAlt />
                   </a>
                 )}
               </h3>
-              <div
-                className="mb-2 text-muted text-center"
-                style={{ color: "#fff", fontSize: 15 }}
-              >
+              <div className="mb-2 text-center project-card-description">
                 {project.description}
               </div>
             </div>

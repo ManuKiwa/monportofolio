@@ -325,6 +325,43 @@ body.light-mode {
   color: var(--text-dark);
 }
 
+.project-card-title {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.light-mode .project-card-title {
+  color: var(--text-dark);
+}
+
+.project-card-link {
+  margin-left: 8px;
+  color: var(--primary-color);
+  font-size: 1.15rem;
+  transition: color 0.2s ease;
+}
+
+.light-mode .project-card-link {
+  color: var(--secondary-color);
+}
+
+.project-card-link:hover {
+  color: #a5b4fc;
+}
+
+.light-mode .project-card-link:hover {
+  color: #a46bff;
+}
+
+.project-card-description {
+  font-size: 0.95rem;
+  color: rgba(224, 230, 237, 0.9);
+}
+
+.light-mode .project-card-description {
+  color: var(--text-muted-light);
+}
+
 .company,
 .institution {
   color: var(--primary-color);

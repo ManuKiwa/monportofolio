@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+## Mon Portfolio – Emmanuel KIWA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce dépôt contient le code source de mon portfolio développeur, créé avec **React 18** et **Create React App**.
 
-## Available Scripts
+Le site est déployé sur **GitHub Pages** à l’adresse suivante :  
+`https://manukiwa.github.io/monportofolio/`
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### 🚀 Aperçu du projet
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Technos principales**: React, JavaScript, CSS, Bootstrap / React‑Bootstrap, React Icons  
+- **Contenu**:
+  - Présentation / profil
+  - Formations & expériences
+  - Compétences techniques & soft skills
+  - Projets (Campus Connect, SignBridge, etc.)
+  - CV téléchargeable au format PDF
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Le code principal de l’application se trouve dans le dossier `src` et les composants sont organisés dans `src/components`.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🧱 Structure du projet
 
-### `npm run build`
+- `src/App.js` : point d’entrée de l’interface principale
+- `src/components/` : composants du site (`Header`, `Navbar`, `Projects`, `Experience`, etc.)
+- `src/assets/` : images de profil, captures de projets, CV PDF
+- `public/` : fichiers statiques de base de Create React App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 💻 Scripts disponibles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dans le répertoire du projet, tu peux lancer :
 
-### `npm run eject`
+- **Démarrer en local**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ```bash
+  npm start
+  ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  L’application démarre sur `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Build de production**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  ```bash
+  npm run build
+  ```
 
-## Learn More
+  Le build optimisé est généré dans le dossier `build/`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🌐 Déploiement sur GitHub Pages
 
-### Code Splitting
+Le projet est configuré pour être déployé sur GitHub Pages à l’URL :  
+`https://manukiwa.github.io/monportofolio/`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 1. Prérequis
 
-### Analyzing the Bundle Size
+- Avoir un dépôt GitHub nommé **`monportofolio`** sous le compte **`manukiwa`**
+- Avoir installé les dépendances du projet :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  ```bash
+  npm install
+  ```
 
-### Making a Progressive Web App
+#### 2. Build de l’application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run build
+```
 
-### Advanced Configuration
+#### 3. Publication sur GitHub
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Si tu utilises l’onglet **Pages** de GitHub avec la branche `main` :
 
-### Deployment
+- Va dans **Settings → Pages**
+- Choisis :
+  - **Source** : `Deploy from a branch`
+  - **Branch** : `main` (ou `master`)
+  - **Folder** : `/(root)` ou `docs` selon ta configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Sinon, tu peux utiliser `gh-pages` (npm) pour déployer automatiquement le dossier `build` vers une branche `gh-pages`.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 📄 Licence
+
+Projet personnel de **Emmanuel KIWA**.  
+Tu peux t’inspirer de la structure, mais merci de ne pas réutiliser mon contenu (texte, images, CV) tel quel.
+

@@ -7,6 +7,7 @@ import {
   FaUniversity,
   FaExternalLinkAlt,
   FaHandPaper,
+  FaTooth, // Nouvelle icône pour le cabinet dentaire
 } from "react-icons/fa";
 
 // Import des images depuis le dossier assets
@@ -15,41 +16,46 @@ import salaryImage from "../assets/images/projects/salary-prediction.jpg";
 import fakeNewsImage from "../assets/images/projects/fake-news.png";
 import campusConnectImage from "../assets/images/projects/campus-connect.png";
 import signBridgeImage from "../assets/images/projects/signbridge.jpeg";
+import dentalCabinetImage from "../assets/images/projects/dentalcabinet.png";
 
 const projects = [
   {
     title: "SignBridge",
     icon: <FaHandPaper color="#4A90E2" size={36} />,
     image: signBridgeImage,
-    link: "https://github.com/tonrepo/signbridge",
+    link: "https://github.com/ManuKiwa/signbridge",
     description:
       "Plateforme d'accessibilité universelle : traduction bidirectionnelle Audio ↔ LSF en temps réel avec avatar 3D et apprentissage interactif IA.",
     tags: ["Three.js", "MediaPipe", "TensorFlow.js", "LSF"],
     featured: true,
   },
   {
-    title: "Chatbot IA",
-    icon: <FaRobot color="#6c63ff" size={36} />,
-    image: chatbotImage,
-    link: "https://github.com/tonrepo/chatbot-ia",
+    title: "Gestion Cabinet Dentaire",
+    icon: <FaTooth color="#00C851" size={36} />,
+    image: dentalCabinetImage, 
+    link: "https://github.com/ManuKiwa/CabinetDentaire",
     description:
-      "Outil conversationnel intelligent utilisant NLP pour automatiser les réponses et l'assistance utilisateur.",
+      "Application web .NET Core (ASP.NET MVC) pour centraliser RDV, patients et gestion dentaire avec architecture performante et sécurisée.",
+    tags: [".NET Core", "ASP.NET MVC", "SQL Server", "Gestion Dentaire"],
+    featured: false,
   },
   {
-    title: "Prédiction de Salaire",
+    title: "Smart Payroll AI",
     icon: <FaChartLine color="#4db6ac" size={36} />,
     image: salaryImage,
-    link: "https://github.com/tonrepo/prediction-salaire",
+    link: "https://github.com/ManuKiwa/prediction-salaire",
     description:
-      "Modèle machine learning pour estimer le salaire sur base des compétences et du parcours professionnel.",
+      "Prédiction salaire IA avec interface web, API REST, réentraînement en live et dataset personnalisable (1000+ employés).",
+    tags: ["Python", "Machine Learning", "Flask", "Scikit-learn", "API REST", "Data Science"],
   },
   {
-    title: "Détection de Fake News",
+    title: "Détection Fake News",
     icon: <FaShieldAlt color="#ff7043" size={36} />,
     image: fakeNewsImage,
-    link: "https://github.com/tonrepo/detection-fake-news",
+    link: "https://github.com/ManuKiwa/detection-fake-news",
     description:
-      "Système de classification pour repérer et filtrer les articles trompeurs ou non fiables en temps réel.",
+      "Système ML pour détecter articles trompeurs en temps réel avec classification NLP avancée.",
+    tags: ["Python", "ML", "NLP", "Scikit-learn", "Flask", "TensorFlow"],
   },
   {
     title: "CampusConnect",
@@ -57,7 +63,17 @@ const projects = [
     image: campusConnectImage,
     link: "https://github.com/ManuKiwa/CampusConnect-Public",
     description:
-      "Plateforme web favorisant l'échange d'informations et la mise en réseau entre étudiants du supérieur.",
+      "Plateforme Laravel pour réseau étudiants : échanges infos, événements, mise en relation.",
+    tags: ["Laravel", "MySQL", "PHP", "Bootstrap", "JavaScript"],
+  },
+  {
+    title: "Chatbot IA",
+    icon: <FaRobot color="#6c63ff" size={36} />,
+    image: chatbotImage,
+    link: "https://github.com/ManuKiwa/chatbot-ia",
+    description:
+      "Assistant conversationnel intelligent avec NLP pour automatiser réponses et support.",
+    tags: ["Python", "NLP", "Flask", "TensorFlow", "IA Conversationnelle"],
   },
 ];
 

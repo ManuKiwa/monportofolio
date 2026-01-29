@@ -52,15 +52,15 @@ function NeuralBackground({ isDarkMode }) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = isDarkMode 
-          ? 'rgba(102, 126, 234, 0.8)' 
-          : 'rgba(102, 126, 234, 0.6)';
+          ? 'rgba(0, 217, 255, 0.8)' 
+          : 'rgba(0, 217, 255, 0.6)';
         ctx.fill();
         
         // Effet de lueur
         ctx.shadowBlur = 10;
         ctx.shadowColor = isDarkMode 
-          ? 'rgba(102, 126, 234, 0.5)' 
-          : 'rgba(102, 126, 234, 0.3)';
+          ? 'rgba(0, 217, 255, 0.5)' 
+          : 'rgba(0, 217, 255, 0.3)';
         ctx.fill();
         ctx.shadowBlur = 0;
       }
@@ -76,7 +76,7 @@ function NeuralBackground({ isDarkMode }) {
     const animate = () => {
       // Fond avec légère transparence pour effet de traînée
       ctx.fillStyle = isDarkMode 
-        ? 'rgba(26, 35, 50, 0.1)' 
+        ? 'rgba(10, 14, 39, 0.1)' 
         : 'rgba(240, 244, 248, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -96,8 +96,8 @@ function NeuralBackground({ isDarkMode }) {
             
             ctx.beginPath();
             ctx.strokeStyle = isDarkMode 
-              ? `rgba(102, 126, 234, ${opacity})` 
-              : `rgba(102, 126, 234, ${opacity * 0.7})`;
+              ? `rgba(0, 217, 255, ${opacity})` 
+              : `rgba(0, 217, 255, ${opacity * 0.7})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);

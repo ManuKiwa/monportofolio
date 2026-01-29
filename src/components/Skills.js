@@ -186,7 +186,7 @@ const Skills = () => (
                   fontWeight: "600",
                 }}
               >
-                ⭐ Nouveau
+                ⭐
               </div>
             )}
             

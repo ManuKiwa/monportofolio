@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const formations = [
   {
@@ -6,24 +6,27 @@ const formations = [
     institution: "Institut Supérieur d'Ingénierie & des Affaires (ISGA)",
     date: "Depuis 2024 | 5ème année (3ème cycle ingénieur) | Casablanca, Maroc",
     details: [
+      "Algorithmes Métaheuristiques & Data Mining",
+      "Architecture Big Data & Data Warehousing",
+      "Intelligence Artificielle appliquée à la Robotique",
+      "Processus Décisionnel Big Data & Outils ETL",
+      "Administration de bases de données",
       "Routage et communication, Administration des services réseaux",
-      "Développement web, Programmation JAVA Avancée, Python",
-      "Base de données orientées objet, Administration de bases de données",
-      "Recherche opérationnelle appliquée à la gestion industrielle",
+      "Développement web, logiciels et applications mobiles",
     ],
   },
   {
     title: "Licence Sciences Informatiques",
     institution: "Université Catholique du Congo (UCC)",
     date: "2020 - 2023 | Mention: Distinction | Kinshasa, RDC",
-    details: []
+    details: [],
   },
   {
     title: "Baccalauréat Scientifique",
     institution: "Collège Notre Dame du Congo (CNDC)",
     date: "2019 - 2020 | Option: Mathématiques et Physique | Mention: Bien",
-    details: []
-  }
+    details: [],
+  },
 ];
 
 const Formation = () => (

@@ -58,7 +58,7 @@ const Header = () => {
         <div className="profile-info text-start" style={{ maxWidth: 600 }}>
           <h1 className="display-5 mb-2">Emmanuel KIWA</h1>
           <div className="subtitle fs-5 mb-3">
-            Ingénieur Systèmes Informatiques | IA & Big Data
+            Ingénieur IA & Big Data | Full Stack Developer
           </div>
           <p className="description mb-4">
             Passionné par l'innovation technologique et actuellement en 5ème

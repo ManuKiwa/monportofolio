@@ -6,15 +6,27 @@ import {
   FaShieldAlt,
   FaUniversity,
   FaExternalLinkAlt,
+  FaHandPaper,
 } from "react-icons/fa";
 
 // Import des images depuis le dossier assets
 import chatbotImage from "../assets/images/projects/chatbot.jpg";
 import salaryImage from "../assets/images/projects/salary-prediction.jpg";
-import fakeNewsImage from "../assets/images/projects/fake-news.jpg";
-import campusConnectImage from "../assets/images/projects/campus-connect.jpg";
+import fakeNewsImage from "../assets/images/projects/fake-news.png";
+import campusConnectImage from "../assets/images/projects/campus-connect.png";
+import signBridgeImage from "../assets/images/projects/signbridge.jpeg";
 
 const projects = [
+  {
+    title: "SignBridge",
+    icon: <FaHandPaper color="#4A90E2" size={36} />,
+    image: signBridgeImage,
+    link: "https://github.com/tonrepo/signbridge",
+    description:
+      "Plateforme d'accessibilité universelle : traduction bidirectionnelle Audio ↔ LSF en temps réel avec avatar 3D et apprentissage interactif IA.",
+    tags: ["Three.js", "MediaPipe", "TensorFlow.js", "LSF"],
+    featured: true,
+  },
   {
     title: "Chatbot IA",
     icon: <FaRobot color="#6c63ff" size={36} />,
@@ -133,7 +145,7 @@ const Projects = () => {
           {seamlessProjects.map((project, idx) => (
             <div
               key={`${project.title}-${idx}`}
-              className="card project-card p-3 shadow-sm"
+              className={`card project-card p-3 shadow-sm ${project.featured ? 'project-featured' : ''}`}
               style={{
                 minWidth: 320,
                 maxWidth: 420,
@@ -143,6 +155,7 @@ const Projects = () => {
                 alignItems: "center",
                 scrollSnapAlign: "center",
                 scrollSnapStop: "always",
+                border: project.featured ? "2px solid #4A90E2" : undefined,
               }}
             >
               {project.image && (
@@ -168,9 +181,22 @@ const Projects = () => {
                     onError={(e) => {
                       e.target.style.display = "none";
                       e.target.parentElement.style.background =
-                        "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+                        project.featured 
+                          ? "linear-gradient(135deg, #4A90E2 0%, #7ED321 100%)"
+                          : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
                     }}
                   />
+                </div>
+              )}
+              {project.featured && (
+                <div 
+                  className="badge bg-primary text-white mb-2"
+                  style={{
+                    fontSize: "0.75rem",
+                    padding: "0.25rem 0.75rem",
+                  }}
+                >
+                  ⭐ Projet Phare
                 </div>
               )}
               <div className="mb-2">{project.icon}</div>
@@ -191,6 +217,22 @@ const Projects = () => {
               <div className="mb-2 text-center project-card-description">
                 {project.description}
               </div>
+              {project.tags && (
+                <div className="d-flex flex-wrap gap-1 justify-content-center mt-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="badge bg-secondary"
+                      style={{
+                        fontSize: "0.7rem",
+                        padding: "0.25rem 0.5rem",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
